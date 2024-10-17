@@ -11,6 +11,7 @@ const Monitor_1 = require("./model/Monitor");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+// atribbute to manage the monitors
 const monitorManager = new Monitor_1.MonitorManager();
 app.get("/api/getMonitors", (req, res) => {
     res.status(200).send({

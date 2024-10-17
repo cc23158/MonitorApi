@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// atribbute to manage the monitors
 const monitorManager = new MonitorManager();
 
 app.get("/api/getMonitors", (req: Request, res: Response) => {

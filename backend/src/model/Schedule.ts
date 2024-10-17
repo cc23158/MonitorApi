@@ -10,10 +10,10 @@ export interface Day {
 };
 
 export class Schedule {
-    private days: Day[] = [];
+    private days: Day[];
 
-    constructor(initDays: Day[] = []) {
-        this.days = initDays;
+    constructor() {
+        this.days = [];
     }
 
     getSchedule(): Day[] {

@@ -4,9 +4,8 @@ exports.Schedule = void 0;
 ;
 ;
 class Schedule {
-    constructor(initDays = []) {
+    constructor() {
         this.days = [];
-        this.days = initDays;
     }
     getSchedule() {
         return this.days;
