@@ -19,4 +19,14 @@ class Day
     List<Time> timesList = timesFromJson.map((i) => Time.fromMap(i)).toList();
     return Day(json["day"], timesList);
   }
+
+  // para permitir a transformação do Schedule em JSON
+  Map<String, dynamic> toJson()
+  {
+    return
+    {
+      "day": day,
+      "times": times.map((time) => {"start": time.start, "end": time.end}).toList()
+    };
+  }
 }
