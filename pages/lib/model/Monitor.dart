@@ -17,7 +17,7 @@ class Monitor
       json["name"],
       json["image"],
       // crio um schedule e adiciono os dados vindos do JSON no formato de uma lista, transformando os dados em seguinda, em um objeto Day
-      Schedule()..days.addAll((json["schedule"] as List).map((element) => Day.fromMap(element)))
+      Schedule()..days.addAll((json["schedule"] as List).map((element) => Day.fromMap(element))),
     );
   }
 
