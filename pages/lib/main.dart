@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "screen/insert.dart";
+import "package:pages/screen/get.dart";
 
 void main() { runApp(const MyApp()); }
 
@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget
   
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp
+    return MaterialApp
     (
       debugShowCheckedModeBanner: false,
       title: "Monitores",
-      home: MonitorSchedule(),
+      home: Get(),
     );
   }
 }

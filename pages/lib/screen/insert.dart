@@ -3,15 +3,15 @@ import "package:pages/model/Time.dart";
 import "package:pages/model/schedule.dart";
 import "package:pages/service/http.dart";
 
-class MonitorSchedule extends StatefulWidget
+class Insert extends StatefulWidget
 {
-  const MonitorSchedule({super.key});
+  const Insert({super.key});
 
   @override
-  MonitorScheduleState createState() => MonitorScheduleState();
+  InsertState createState() => InsertState();
 }
 
-class MonitorScheduleState extends State<MonitorSchedule>
+class InsertState extends State<Insert>
 {
   Schedule schedule = Schedule();
 
@@ -50,7 +50,7 @@ class MonitorScheduleState extends State<MonitorSchedule>
     Navigator.push
     (
       context,
-      MaterialPageRoute(builder: (context) => SchedulePlanning
+      MaterialPageRoute(builder: (context) => Planning
       (
         // é passado o dia da semana, a lista de horários a se considerar e pede-se
         // uma lista dos horários selecionados, pois serão usados para preencher o Schedule do objeto Monitor
@@ -162,19 +162,19 @@ class MonitorScheduleState extends State<MonitorSchedule>
   }  
 }
 
-class SchedulePlanning extends StatefulWidget
+class Planning extends StatefulWidget
 {
   final String day;
   final List<Time> times;
   final Function(List<Time>) onTimesSelected;
 
-  const SchedulePlanning({super.key,  required this.day, required this.times, required this.onTimesSelected });
+  const Planning({super.key,  required this.day, required this.times, required this.onTimesSelected });
   
   @override
-  SchedulePlanningState createState() => SchedulePlanningState();
+  PlanningState createState() => PlanningState();
 }
 
-class SchedulePlanningState extends State<SchedulePlanning>
+class PlanningState extends State<Planning>
 {
   List<Time> selectedTimes = [];
 
@@ -212,7 +212,7 @@ class SchedulePlanningState extends State<SchedulePlanning>
       // botão para confirmar o planejamento dos horários da monitoria
       floatingActionButton: FloatingActionButton
       (
-        // retorna à classe SchedulePlanning os horários selecionados
+        // retorna à classe Planning os horários selecionados
         onPressed: ()
         {
           widget.onTimesSelected(selectedTimes);
