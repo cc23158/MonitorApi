@@ -1,11 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pages/model/Monitor.dart';
-import 'package:pages/model/Schedule.dart';
 import 'package:pages/screen/insert.dart';
 import 'package:pages/service/http.dart';
 
 class Get extends StatefulWidget {
+  const Get({super.key});
+
   @override
   GetState createState() => GetState();
 }
@@ -94,7 +95,11 @@ class GetState extends State<Get> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Insert())),
+        onPressed: () => {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Insert())).then((_) {
+            fetchMonitors();
+          })
+        },
         child: const Icon(Icons.add),
       ),
     );
