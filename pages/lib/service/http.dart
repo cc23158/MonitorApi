@@ -2,7 +2,7 @@ import "package:http/http.dart" as http;
 import "dart:convert";
 import "dart:io";
 
-import "../model/monitor.dart";
+import "package:pages/model/Monitor.dart";
 
 class Http
 {
