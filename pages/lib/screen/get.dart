@@ -50,7 +50,6 @@ class GetState extends State<Get>
                 onPageChanged: (index, reason) {
                   setState(() {
                     currentIndex = index;
-                    print(currentIndex);
                   });
                 },
               ),
@@ -80,7 +79,7 @@ class GetState extends State<Get>
                           Text(monitor.name, style: const TextStyle(color: Colors.white, fontSize: 18)),
                           IconButton
                           (
-                            onPressed: () { /*ScheduleTable(schedule: monitor.schedule); */ },
+                            onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => ScheduleTable(schedule: monitor.schedule))); },
                             icon: const Icon(Icons.schedule_rounded, color: Colors.white)
                           )
                         ],
@@ -97,6 +96,128 @@ class GetState extends State<Get>
       (
         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Insert())),
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class ScheduleTable extends StatelessWidget
+{
+  final Schedule schedule;
+
+  List<String> timeSlots =
+  [
+    "07:30 - 08:15",
+    "08:15 - 09:00",
+    "09:00 - 09:45",
+    "10:00 - 10:45",
+    "10:45 - 11:30",
+    "11:30 - 12:15",
+    "13:30 - 14:15",
+    "14:15 - 15:00",
+    "15:00 - 15:45",
+    "16:00 - 16:45",
+    "16:45 - 17:30",
+    "17:30 - 18:15"
+  ];
+
+  ScheduleTable({ super.key, required this.schedule });
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold
+    (
+      appBar: AppBar
+      (
+        title: const Text("Horários de Monitoria"),
+        centerTitle: true,
+      ),
+      body: Padding
+      (
+        padding: const EdgeInsets.all(20),
+        child: Table
+        (
+          border: TableBorder.all(),
+          children:
+          [
+            TableRow
+            (
+              children: 
+              [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Horário', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Segunda-feira', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Terça-feira', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Quarta-feira', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Quinta-feira', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Sexta-feira', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Sábado', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Domingo', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ]
+            ),
+            for (String timeSlot in timeSlots)
+              TableRow(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(timeSlot),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text(''),
+                  ),
+                ],
+              ),
+          ],
+        ),
       ),
     );
   }
