@@ -1,4 +1,4 @@
-import "Schedule.dart";
+import "package:pages/model/Schedule.dart";
 
 class Monitor
 {

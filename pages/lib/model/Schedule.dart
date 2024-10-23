@@ -1,5 +1,5 @@
-import "Time.dart";
-import "day.dart";
+import "package:pages/model/Time.dart";
+import "package:pages/model/Day.dart";
 
 class Schedule
 {
@@ -8,6 +8,8 @@ class Schedule
   // cria a lista de dias apenas com o campo day, sem os horários
   Schedule(): days = List.generate(7, (index) => Day(index, []));
   Schedule.fromDays(this.days);
+
+  List<Day> getSchedule() { return days;  }
 
   void addSchedule(int day, List<Time> time) { days[day] = Day(day, time); }
 

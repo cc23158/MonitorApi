@@ -1,5 +1,6 @@
 import "package:carousel_slider/carousel_slider.dart";
 import "package:flutter/material.dart";
+import "package:pages/model/Day.dart";
 import "package:pages/model/Monitor.dart";
 import "package:pages/model/Schedule.dart";
 import "package:pages/screen/insert.dart";
@@ -126,6 +127,8 @@ class ScheduleTable extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
+    List<Day> days = schedule.getSchedule().cast<Day>();
+  
     return Scaffold
     (
       appBar: AppBar
@@ -186,34 +189,26 @@ class ScheduleTable extends StatelessWidget
                     padding: const EdgeInsets.all(8),
                     child: Text(timeSlot),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Text(''),
-                  ),
+                  ...List.generate(7, (index) {
+                    // Verifique se o horário atual está presente na lista de 'times' do 'Day' correspondente
+                    String timeText = '';
+                    if (index < days.length) {
+                      var times = days[index].times;
+                      // Verifica se algum dos horários corresponde ao timeSlot
+                      for (var time in times) {
+                        if (time.start == timeSlot.split(' - ')[0]) {
+                          timeText = "XXXXXXXXXXX";
+                          break; // Se encontrar, não precisa continuar verificando
+                        }
+                      }
+                    }
+                    return Container
+                    (
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration( color: timeText.isEmpty ? Colors.transparent : Colors.red ),
+                      child: Text(""),
+                    );
+                  }),
                 ],
               ),
           ],

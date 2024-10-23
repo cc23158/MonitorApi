@@ -1,4 +1,4 @@
-import "Time.dart";
+import "package:pages/model/Time.dart";
 
 class Day
 {
