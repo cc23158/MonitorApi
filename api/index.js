@@ -25,10 +25,12 @@ function addDaysWithTimes(schedule) {
 
 addDaysWithTimes(schedule1);
 
-var monitor1 = new Monitor("Monitor 1", "https://www.google.com/imgres?q=imagens%20png&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fpt%2Ff%2Ff9%2FFuria_Esports_logo.png&imgrefurl=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FFicheiro%3AFuria_Esports_logo.png&docid=AyInFgcVH5A9sM&tbnid=XrwWxAOJi8PBMM&vet=12ahUKEwimqr3z8qCJAxU0D7kGHQWMNicQM3oECFQQAA..i&w=321&h=312&hcb=2&ved=2ahUKEwimqr3z8qCJAxU0D7kGHQWMNicQM3oECFQQAA", schedule1);
+var monitor1 = new Monitor("Monitor 1", "https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png", schedule1);
+var monitor2 = new Monitor("Monitor 2", "https://upload.wikimedia.org/wikipedia/commons/1/17/LOUD_LOGO.png", schedule1);
 
 var monitorManager = new MonitorManager();
 monitorManager.insert(monitor1);
+monitorManager.insert(monitor2);
 
 app.get("/api/getMonitors", (req, res) => {
     const monitors = monitorManager.getAll();
