@@ -10,14 +10,15 @@ app.use(cors());
 app.use(express.json());
 
 var schedule1 = new Schedule()
+var schedule2 = new Schedule()
 
 function addDaysWithTimes(schedule) {
     for (let i = 1; i <= 7; i++) {
         const day = new Day(i);
 
-        day.addTime("09:00", "10:00");
-        day.addTime("10:00", "11:00");
-        day.addTime("11:00", "12:00");
+        day.addTime("09:00", "09:45");
+        day.addTime("10:00", "10:45");
+        day.addTime("10:45", "11:30");
 
         schedule.addDay(day);
     }

@@ -30,9 +30,9 @@ class InsertState extends State<Insert>
 
   final List<Time> weekSchedule = 
   [
-    Time("7:30", "8:15"),
-    Time("8:15", "9:00"),
-    Time("9:00", "9:45"),
+    Time("07:30", "08:15"),
+    Time("08:15", "09:00"),
+    Time("09:00", "09:45"),
     Time("10:00", "10:45"),
     Time("10:45", "11:30"),
     Time("11:30", "12:15"),

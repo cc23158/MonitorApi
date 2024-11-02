@@ -6,7 +6,7 @@ import "package:pages/model/Monitor.dart";
 
 class Http
 {
-  static String url = "http://177.220.18.250:3000/api/";
+  static String url = "http://192.168.0.101:3000/api/";
 
   // Obtém a lista de monitores
   static getMonitors() async
